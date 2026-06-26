@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Guia do Estudante Ingressante — UniLS</title>
+<style>
+  /* System fonts — zero external dependency, instant on iOS and Android */
+
+  :root {
+    --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --red: #D81F33;
+    --red-dark: #A8101F;
+    --red-light: #FBE9EB;
+    --red-mid: #EFB3BA;
+    --ink: #1E1E28;
+    --text: #2D2D38;
+    --muted: #6E6E7E;
+    --bg: #F4F4F2;
+    --white: #FFFFFF;
+    --gray: #EDEDF0;
+    --gray-line: #E2E2E8;
+    --green: #1A7A52;
+    --green-bg: #E7F4EE;
+    --amber: #8A5A00;
+    --amber-bg: #FCF1D9;
+    --blue: #234699;
+    --blue-bg: #ECF0FB;
+    --shadow-sm: 0 2px 10px rgba(30,30,40,0.06);
+    --shadow: 0 6px 24px rgba(30,30,40,0.10);
+    --shadow-lg: 0 16px 48px rgba(30,30,40,0.16);
+    --r: 18px;
+    --r-sm: 12px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html {}
+  body {
+    font-family: var(--font-sans);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ============ HEADER ============ */
+  .topbar {
+    position: -webkit-sticky; position: sticky; top: 0; z-index: 100;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-line);
+    box-shadow: var(--shadow-sm);
+  }
+  .topbar-inner {
+    max-width: 880px; margin: 0 auto;
+    padding: 14px 22px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .logo { display: flex; align-items: center; gap: 10px; cursor: pointer; }
+  .topbar-tag {
+    margin-left: auto; font-size: 12px; color: var(--muted);
+    font-weight: 500; letter-spacing: 0.3px;
+  }
+
+  /* ============ TABS ============ */
+  .tabrow {
+    position: -webkit-sticky; position: sticky; top: 69px; z-index: 99;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-line);
+  }
+  .tabrow-inner {
+    max-width: 880px; margin: 0 auto;
+    padding: 0 22px;
+    display: flex; gap: 4px;
+  }
+  .tab {
+    -webkit-appearance: none; appearance: none; border: none; background: transparent;
+    font-family: var(--font-sans); font-size: 14px; font-weight: 600;
+    color: var(--muted); cursor: pointer;
+    padding: 14px 18px 12px;
+    border-bottom: 3px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+    display: flex; align-items: center; gap: 7px;
+  }
+  .tab:hover { color: var(--ink); }
+  .tab.active { color: var(--red); border-bottom-color: var(--red); }
+  .tab-emoji { font-size: 16px; }
+
+  /* ============ CONTAINER ============ */
+  .container { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+  .view { display: none; animation: fade 0.3s ease; }
+  .view.active { display: block; }
+  @-webkit-keyframes fade { from { opacity: 0; -webkit--webkit-transform: translateY(6px); transform: translateY(6px); -webkit-transform: translateY(6px); transform: translateY(6px); } to { opacity: 1; -webkit--webkit-transform: translateY(0); transform: translateY(0); -webkit-transform: translateY(0); transform: translateY(0); } }
+  @keyframes fade { from { opacity: 0; -webkit-transform: translateY(6px); transform: translateY(6px); } to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); } }
+
+  /* ============ HOME / WELCOME ============ */
+  .welcome {
+    text-align: center;
+    padding: 56px 22px 36px;
+  }
+  .welcome-badge {
+    display: inline-block; background: var(--red-light); color: var(--red-dark);
+    border-radius: 100px; padding: 7px 18px;
+    font-size: 12px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; margin-bottom: 22px;
+  }
+  .welcome h1 {
+    font-family: var(--font-display);
+    font-size: 36px; font-size: clamp(30px, 6vw, 48px); font-weight: 800;
+    line-height: 1.1; color: var(--ink); margin-bottom: 14px;
+    letter-spacing: -1px;
+  }
+  .welcome h1 .em { font-size: 0.9em; }
+  .welcome h1 span { color: var(--red); }
+  .welcome .sub {
+    font-size: 17px; color: var(--muted); font-weight: 500;
+    font-style: italic; max-width: 520px; margin: 0 auto 18px;
+  }
+  .welcome .msg {
+    font-size: 15px; color: var(--text); max-width: 600px;
+    margin: 0 auto; line-height: 1.7;
+    background: var(--white); border-radius: var(--r);
+    padding: 20px 26px; box-shadow: var(--shadow-sm);
+    border-left: 4px solid var(--red);
+    text-align: left;
+  }
+
+  /* ============ BIG CARDS ============ */
+  .bigcards {
+    display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap;
+    gap: 20px; margin: 8px auto 48px;
+  }
+  .bigcard {
+    background: var(--white); border-radius: var(--r);
+    padding: 34px 28px; text-align: center; cursor: pointer;
+    box-shadow: var(--shadow); border: 2px solid transparent;
+    transition: -webkit-transform 0.25s, transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+    position: relative; overflow: hidden;
+    -webkit-flex: 1 1 calc(50% - 10px); flex: 1 1 calc(50% - 10px); min-width: 260px;
+  }
+  .bigcard::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 5px;
+    background: var(--red);
+  }
+  .bigcard:hover {
+    -webkit-transform: translateY(-6px); transform: translateY(-6px); box-shadow: var(--shadow-lg);
+    border-color: var(--red-mid);
+  }
+  .bigcard-icon {
+    width: 84px; height: 84px; border-radius: 22px; margin: 0 auto 20px;
+    background: var(--red-light);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 42px;
+  }
+  .bigcard h2 {
+    font-family: var(--font-display); font-size: 22px; font-weight: 700;
+    color: var(--ink); margin-bottom: 10px;
+  }
+  .bigcard p {
+    font-size: 14px; color: var(--muted); line-height: 1.6;
+    margin-bottom: 22px; min-height: 84px;
+  }
+  .bigcard-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--red); color: white;
+    border-radius: 100px; padding: 12px 28px;
+    font-size: 14px; font-weight: 700;
+    transition: background 0.2s;
+  }
+  .bigcard:hover .bigcard-btn { background: var(--red-dark); }
+
+  /* ============ SECTION HEADER (inside tabs) ============ */
+  .section-intro { padding: 36px 0 20px; }
+  .section-intro .eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: var(--red); margin-bottom: 8px;
+  }
+  .section-intro h2 {
+    font-family: var(--font-display); font-size: 28px; font-weight: 800;
+    color: var(--ink); margin-bottom: 8px; letter-spacing: -0.5px;
+  }
+  .section-intro p { font-size: 15px; color: var(--muted); max-width: 600px; }
+
+  /* ============ SEARCH ============ */
+  .search-wrap { position: relative; margin-bottom: 8px; }
+  .search-input {
+    width: 100%; font-family: var(--font-sans); font-size: 16px;
+    padding: 16px 18px 16px 50px;
+    border: 2px solid var(--gray-line); border-radius: 100px;
+    background: var(--white); color: var(--ink);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  .search-input:focus {
+    border-color: var(--red);
+    box-shadow: 0 0 0 4px var(--red-light);
+  }
+  .search-input::placeholder { color: var(--muted); }
+  .search-icon {
+    position: absolute; left: 18px; top: 50%; transform: translateY(-50%);
+    font-size: 18px; pointer-events: none;
+  }
+  .search-clear {
+    -webkit-appearance: none; position: absolute; right: 14px; top: 50%; -webkit-transform: translateY(-50%); transform: translateY(-50%);
+    width: 26px; height: 26px; border-radius: 50%; border: none;
+    background: var(--gray); color: var(--muted); cursor: pointer;
+    font-size: 14px; display: none; align-items: center; justify-content: center;
+  }
+  .search-clear.show { display: flex; }
+  .search-empty {
+    display: none; text-align: center; padding: 40px 20px;
+    color: var(--muted); font-size: 15px;
+  }
+  .search-empty.show { display: block; }
+
+  /* ============ CARDS / ACCORDION ============ */
+  .cards { margin: 18px 0 8px; display: flex; flex-direction: column; gap: 12px; }
+  .card {
+    background: var(--white); border-radius: var(--r);
+    box-shadow: var(--shadow-sm); overflow: hidden;
+    border: 2px solid transparent; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .card.open { border-color: var(--red); box-shadow: var(--shadow); }
+  .card-head {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px 20px; cursor: pointer; user-select: none;
+  }
+  .card-head:hover { background: #FCFCFD; }
+  .card-icon {
+    width: 48px; height: 48px; border-radius: 13px; flex-shrink: 0;
+    background: var(--red-light);
+    display: flex; align-items: center; justify-content: center; font-size: 23px;
+  }
+  .card-titles { flex: 1; min-width: 0; }
+  .card-kicker {
+    font-size: 10.5px; font-weight: 800; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--red); margin-bottom: 2px;
+    display: flex; align-items: center; gap: 4px;
+  }
+  .card-title {
+    font-family: var(--font-display); font-size: 16px; font-weight: 700;
+    color: var(--ink); line-height: 1.3;
+  }
+  .card-chevron {
+    width: 30px; height: 30px; border-radius: 50%; flex-shrink: 0;
+    background: var(--gray); color: var(--muted);
+    display: flex; align-items: center; justify-content: center;
+    transition: transform 0.3s, background 0.2s, color 0.2s;
+  }
+  .card.open .card-chevron { -webkit-transform: rotate(180deg); transform: rotate(180deg); background: var(--red); color: white; }
+  .card-chevron svg { width: 16px; height: 16px; }
+  .card-body {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.35s ease;
+  }
+  .card-body-inner { padding: 4px 20px 22px 20px; }
+  .card-body-inner > p { font-size: 14.5px; color: var(--text); margin-bottom: 14px; line-height: 1.7; }
+  .card-body-inner > p:last-child { margin-bottom: 0; }
+  .card-body-inner strong { color: var(--ink); font-weight: 700; }
+
+  /* steps */
+  .steps { list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 9px; margin: 6px 0 14px; }
+  .steps li {
+    display: flex; gap: 12px; align-items: flex-start;
+    background: var(--bg); border: 1px solid var(--gray-line);
+    border-radius: var(--r-sm); padding: 12px 14px;
+    font-size: 14px; line-height: 1.55;
+  }
+  .steps li::before {
+    counter-increment: s; content: counter(s);
+    width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0;
+    background: var(--red); color: white; font-size: 12px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .card-body-inner a.inline { color: var(--red); font-weight: 600; text-decoration: none; }
+  .card-body-inner a.inline:hover { text-decoration: underline; }
+
+  /* notices */
+  .note { display: flex; gap: 11px; align-items: flex-start; border-radius: var(--r-sm); padding: 13px 15px; font-size: 13.5px; line-height: 1.6; margin-top: 12px; }
+  .note .ni { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+  .note.warn { background: var(--amber-bg); border: 1px solid #EAC97A; color: var(--amber); }
+  .note.ok { background: var(--green-bg); border: 1px solid #A5D9C2; color: var(--green); }
+  .note.tip { background: var(--blue-bg); border: 1px solid #BBC8EE; color: var(--blue); }
+
+  /* action buttons */
+  .actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 7px;
+    border-radius: 100px; padding: 10px 18px; font-size: 13.5px; font-weight: 600;
+    text-decoration: none; cursor: pointer; border: none; transition: all 0.2s;
+  }
+  .btn-primary { background: var(--red); color: white; }
+  .btn-primary:hover { background: var(--red-dark); }
+  .btn-ghost { background: var(--white); color: var(--red); border: 1.5px solid var(--red-mid); }
+  .btn-ghost:hover { background: var(--red-light); border-color: var(--red); }
+  .btn-wa { background: #1FA855; color: white; }
+  .btn-wa:hover { background: #178A45; }
+
+  /* email template */
+  .email-box { background: var(--blue-bg); border: 1px solid #BBC8EE; border-radius: var(--r-sm); overflow: hidden; margin-top: 14px; }
+  .email-box-h { background: #DDE4F7; padding: 9px 15px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--blue); }
+  .email-box-b { padding: 14px; display: flex; flex-direction: column; gap: 10px; }
+  .ef-label { font-size: 10.5px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 3px; }
+  .ef-val { background: white; border: 1px solid var(--gray-line); border-radius: 7px; padding: 8px 12px; font-size: 13px; color: var(--ink); font-weight: 500; }
+  .ef-val.code { font-family: ui-monospace, monospace; font-size: 12px; color: var(--red); }
+  .ef-val + .ef-val { margin-top: 4px; }
+
+  /* highlight */
+  .hl { background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); border-radius: var(--r); padding: 22px; color: white; margin: 14px 0; }
+  .hl h4 { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 6px; }
+  .hl p { font-size: 14px; color: rgba(255,255,255,0.85); margin-bottom: 14px; }
+  .hl .actions { margin-top: 0; }
+  .hl .btn-glass { background: rgba(255,255,255,0.16); color: white; border: 1px solid rgba(255,255,255,0.28); }
+  .hl .btn-glass:hover { background: rgba(255,255,255,0.28); }
+
+  /* mini-list inside cards */
+  .minilist { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 6px; }
+  .minilist li { display: flex; gap: 9px; align-items: flex-start; font-size: 13.5px; color: var(--text); }
+  .minilist li .mi { flex-shrink: 0; }
+
+  /* ============ FOOTER ============ */
+  .footer { text-align: center; padding: 40px 22px 120px; border-top: 1px solid var(--gray-line); margin-top: 28px; }
+  .footer p { font-size: 13px; color: var(--muted); line-height: 1.8; }
+  .footer strong { color: var(--ink); }
+
+  /* ============ FLOATING HELP ============ */
+  .fab-help {
+    position: fixed; right: 20px; bottom: 20px; z-index: 200;
+    background: var(--red); color: white; border: none; cursor: pointer;
+    border-radius: 100px; padding: 14px 22px; font-size: 14px; font-weight: 700;
+    font-family: var(--font-sans);
+    box-shadow: 0 8px 24px rgba(216,31,51,0.45);
+    display: flex; align-items: center; gap: 8px;
+    transition: -webkit-transform 0.2s, transform 0.2s, background 0.2s;
+  }
+  .fab-help:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); background: var(--red-dark); }
+
+  .fab-top {
+    position: fixed; right: 20px; bottom: 84px; z-index: 200;
+    width: 46px; height: 46px; border-radius: 50%;
+    background: var(--white); color: var(--red); border: 1.5px solid var(--gray-line);
+    cursor: pointer; box-shadow: var(--shadow);
+    display: none; align-items: center; justify-content: center; font-size: 20px;
+    transition: -webkit-transform 0.2s, transform 0.2s, opacity 0.2s;
+  }
+  .fab-top.show { display: flex; }
+  .fab-top:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); }
+
+  /* help modal */
+  .overlay {
+    position: fixed; inset: 0; z-index: 300;
+    background: rgba(30,30,40,0.65); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px);
+    display: none; align-items: flex-end; justify-content: center;
+    animation: fade 0.2s ease;
+  }
+  .overlay.show { display: flex; }
+  .help-sheet {
+    background: var(--white); width: 100%; max-width: 480px;
+    border-radius: 24px 24px 0 0; padding: 26px 24px 32px;
+    box-shadow: var(--shadow-lg); animation: slideUp 0.3s ease;
+  }
+  @-webkit-keyframes slideUp { from { -webkit--webkit-transform: translateY(40px); transform: translateY(40px); -webkit-transform: translateY(40px); transform: translateY(40px); opacity: 0; } to { -webkit--webkit-transform: translateY(0); transform: translateY(0); -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; } }
+  @keyframes slideUp { from { -webkit-transform: translateY(40px); transform: translateY(40px); opacity: 0; } to { -webkit-transform: translateY(0); transform: translateY(0); opacity: 1; } }
+  .help-sheet h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+  .help-sheet .hs-sub { font-size: 13.5px; color: var(--muted); margin-bottom: 20px; }
+  .help-close {
+    position: absolute; top: 14px; right: 14px; width: 32px; height: 32px;
+    border-radius: 50%; border: none; background: var(--gray); color: var(--muted);
+    cursor: pointer; font-size: 16px;
+  }
+  .help-grid { display: flex; flex-direction: column; gap: 10px; }
+  .help-item {
+    display: flex; align-items: center; gap: 14px; text-decoration: none;
+    background: var(--bg); border: 1px solid var(--gray-line); border-radius: var(--r-sm);
+    padding: 14px 16px; transition: border-color 0.2s, background 0.2s;
+  }
+  .help-item:hover { border-color: var(--red); background: var(--red-light); }
+  .help-item .hi-icon {
+    width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 20px;
+  }
+  .help-item.wa .hi-icon { background: #E3F6EA; }
+  .help-item.tel .hi-icon { background: var(--red-light); }
+  .help-item.mail .hi-icon { background: var(--blue-bg); }
+  .help-item .hi-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); display: block; }
+  .help-item .hi-value { font-size: 15px; font-weight: 700; color: var(--ink); }
+  @media (min-width: 520px) { .overlay { align-items: center; } .help-sheet { border-radius: 24px; position: relative; } }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 600px) {
+    .bigcards { grid-template-columns: 1fr; }
+    .bigcard p { min-height: auto; }
+    .welcome { padding: 40px 18px 28px; }
+    .tabrow { top: 67px; }
+    .tab { padding: 13px 12px 11px; font-size: 13px; }
+    .topbar-tag { display: none; }
+    .section-intro h2 { font-size: 23px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="logo" onclick="goTab('home')" style="display:flex;align-items:center;">
+      <img src="data:image/png;base64,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" alt="UniLS — Centro Universitário LS" style="height:48px;width:auto;display:block;">
+    </div>
+    <span class="topbar-tag">Guia do Estudante Ingressante</span>
+  </div>
+</header>
+
+<!-- TABS -->
+<nav class="tabrow">
+  <div class="tabrow-inner">
+    <button class="tab active" data-tab="home" onclick="goTab('home')"><span class="tab-emoji">🏠</span> Início</button>
+    <button class="tab" data-tab="academico" onclick="goTab('academico')"><span class="tab-emoji">🎓</span> Acadêmico</button>
+    <button class="tab" data-tab="financeiro" onclick="goTab('financeiro')"><span class="tab-emoji">💰</span> Financeiro</button>
+  </div>
+</nav>
+
+<!-- ===================================================== -->
+<!-- VIEW: HOME                                            -->
+<!-- ===================================================== -->
+<section id="view-home" class="view active">
+  <div class="welcome">
+    <span class="welcome-badge">Olá, Estudante!</span>
+    <h1><span class="em">🎓</span> BEM-VINDO À <span>UniLS</span></h1>
+    <p class="sub">Tudo o que você precisa saber para iniciar sua jornada acadêmica.</p>
+    <p class="msg">Estamos felizes em fazer parte da sua trajetória! Preparamos este guia para ajudá-lo a conhecer os principais serviços, processos e informações da sua vida acadêmica. Escolha uma das áreas abaixo para começar.</p>
+  </div>
+
+  <div class="container">
+    <div class="bigcards">
+      <div class="bigcard" onclick="goTab('academico')">
+        <div class="bigcard-icon">🎓</div>
+        <h2>Acadêmico</h2>
+        <p>Conheça tudo sobre sua vida acadêmica: calendário, portal do aluno, notas, frequência, requerimentos, avaliações, extensão, atividades complementares, CPA e muito mais.</p>
+        <span class="bigcard-btn">Acessar Acadêmico →</span>
+      </div>
+      <div class="bigcard" onclick="goTab('financeiro')">
+        <div class="bigcard-icon">💰</div>
+        <h2>Financeiro</h2>
+        <p>Consulte informações sobre boletos, pagamentos, declaração para imposto de renda, negociação de débitos, recuperação de senha e demais serviços financeiros.</p>
+        <span class="bigcard-btn">Acessar Financeiro →</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- VIEW: ACADÊMICO                                       -->
+<!-- ===================================================== -->
+<section id="view-academico" class="view">
+  <div class="container">
+    <div class="section-intro">
+      <div class="eyebrow">Sua vida acadêmica</div>
+      <h2>🎓 Área Acadêmica</h2>
+      <p>Toque em qualquer card para ver as informações. Use a busca para encontrar um tema rapidamente.</p>
+    </div>
+
+    <div class="search-wrap">
+      <span class="search-icon">🔎</span>
+      <input type="text" class="search-input" id="search-academico" placeholder="O que você deseja encontrar? Ex.: nota, calendário, histórico..." oninput="filterCards('academico')">
+      <button class="search-clear" id="clear-academico" onclick="clearSearch('academico')">✕</button>
+    </div>
+    <div class="search-empty" id="empty-academico">Nenhum tema encontrado. Tente outra palavra ou fale com a gente no botão 💬 Precisa de ajuda?</div>
+
+    <div class="cards" id="cards-academico">
+
+      <!-- 1. Calendário Acadêmico -->
+      <div class="card" data-keys="calendário calendario datas feriados início aulas provas semestre cronograma prazos">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📅</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Existe um Calendário Acadêmico oficial?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>O Calendário Acadêmico mostra as datas que organizam todo o semestre: início e fim das aulas, períodos de provas, recessos, feriados, prazos de matrícula e entrega de documentos.</p>
+          <div class="note tip"><span class="ni">💡</span><span>Salve as datas das avaliações e dos prazos administrativos logo no começo do semestre. Quase toda dúvida de "quando é?" se resolve aqui.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://www.unils.edu.br/wp-content/uploads/2019/02/Calendario-Academico-2026.pdf" target="_blank">📅 Ver Calendário Acadêmico</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- e) Canais oficiais -->
+      <div class="card" data-keys="canais oficiais comunicados informações divulgação site instagram e-mail institucional avisos notícias">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📢</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">As principais informações acadêmicas são divulgadas pelos canais oficiais da instituição?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Comunicados, prazos, mudanças no calendário e orientações importantes são publicados nos canais oficiais da UniLS. Acompanhar esses canais é a melhor forma de não perder nenhuma informação.</p>
+          <ul class="minilist">
+            <li><span class="mi">🌐</span> Site institucional e Portal do Aluno</li>
+            <li><span class="mi">📧</span> E-mail institucional do estudante</li>
+            <li><span class="mi">📱</span> Redes sociais oficiais da instituição</li>
+          </ul>
+          <div class="note tip"><span class="ni">💡</span><span>Confira seu e-mail institucional com frequência: muitos avisos importantes chegam por ele.</span></div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://www.unils.edu.br" target="_blank">🌐 Acessar site oficial</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 2. Portal do Aluno -->
+      <div class="card" data-keys="portal aluno acesso login senha sistema espaço do aluno area do aluno sei">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">💻</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">O Portal do Aluno é sua central de tudo?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>No Portal do Aluno você acessa notas, frequência, boletos, declarações, materiais e requerimentos — tudo em um só lugar, a qualquer hora.</p>
+          <p style="font-weight:700;color:var(--ink);margin-bottom:6px;">Como fazer?</p>
+          <ul class="steps">
+            <li>Acesse <strong>unils.edu.br</strong> e clique em <strong>Estudante</strong>.</li>
+            <li>Informe seu <strong>login</strong> e <strong>senha</strong>.</li>
+            <li>Entre em <strong>Espaço do Aluno</strong> para ver todos os menus disponíveis.</li>
+          </ul>
+          <div class="note tip"><span class="ni">🔐</span><span>Esqueceu a senha? Veja o card de <strong>Recuperação de Senha</strong>.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sei.unils.edu.br/" target="_blank">🔗 Acessar Portal</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- f) Recuperação de Senha (acadêmico) -->
+      <div class="card" data-keys="senha recuperação redefinição esqueci minha senha portal e-mail email institucional login acesso simples">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">🔐</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Caso esqueça sua senha do Portal do Aluno ou do e-mail institucional, a recuperação pode ser solicitada de forma simples?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Em caso de esquecimento da senha de acesso ao Portal do Aluno ou ao e-mail institucional, basta solicitar a redefinição por e-mail. É rápido e não exige atendimento presencial.</p>
+          <p style="font-weight:700;color:var(--ink);margin-bottom:6px;">Como fazer?</p>
+          <ul class="steps">
+            <li>Envie um e-mail para <strong>minhasenha@unils.edu.br</strong>.</li>
+            <li>No <strong>assunto</strong>, escolha a opção que corresponde ao que você precisa:<br><br>
+              <div style="display:flex;flex-direction:column;gap:7px;margin-top:2px;">
+                <div style="background:var(--white);border:1.5px solid var(--gray-line);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:16px;">🔑</span>
+                  <div>
+                    <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">Apenas o portal</div>
+                    <div style="font-family:ui-monospace,monospace;font-size:12.5px;color:var(--red);font-weight:600;">REDEFINIÇÃO DE SENHA DO PORTAL</div>
+                  </div>
+                </div>
+                <div style="background:var(--white);border:1.5px solid var(--gray-line);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:16px;">📧</span>
+                  <div>
+                    <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">Apenas o e-mail institucional</div>
+                    <div style="font-family:ui-monospace,monospace;font-size:12.5px;color:var(--red);font-weight:600;">REDEFINIÇÃO DE SENHA DO E-MAIL</div>
+                  </div>
+                </div>
+                <div style="background:var(--white);border:1.5px solid var(--gray-line);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:10px;">
+                  <span style="font-size:16px;">🔑📧</span>
+                  <div>
+                    <div style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);margin-bottom:2px;">Portal e e-mail ao mesmo tempo</div>
+                    <div style="font-family:ui-monospace,monospace;font-size:12.5px;color:var(--red);font-weight:600;">REDEFINIÇÃO DE SENHA DO PORTAL E E-MAIL</div>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>No <strong>corpo</strong>, informe obrigatoriamente seu <strong>nome completo</strong> e <strong>CPF</strong>.</li>
+            <li>Aguarde o retorno da equipe com as orientações para redefinição.</li>
+          </ul>
+          <div class="note warn"><span class="ni">⚠️</span><span>Solicitações sem nome completo e CPF não poderão ser atendidas, pois não será possível localizar o cadastro do estudante.</span></div>
+        </div></div>
+      </div>
+
+      <!-- g) Atualização da Foto de Perfil (acadêmico) -->
+      <div class="card" data-keys="foto perfil atualizar foto alterar foto imagem configuração espaço do aluno portal">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📸</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Você pode atualizar sua foto de perfil diretamente pelo Portal do Aluno?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>A atualização da foto de perfil é feita por você mesmo, diretamente pelo Portal do Aluno, em poucos passos.</p>
+          <p style="font-weight:700;color:var(--ink);margin-bottom:6px;">Como fazer?</p>
+          <ul class="steps">
+            <li>Acesse o Portal do Aluno e faça login com seu <strong>login</strong> e <strong>senha</strong>.</li>
+            <li>Após o acesso, será exibido o seu nome.</li>
+            <li>Selecione <strong>Espaço do Aluno</strong>.</li>
+            <li>Acesse o menu <strong>Configuração</strong>.</li>
+            <li>Clique em <strong>Alterar Foto</strong>.</li>
+            <li>Escolha a imagem desejada e confirme a atualização.</li>
+          </ul>
+          <div class="note tip"><span class="ni">💡</span><span>Use uma foto recente, com boa iluminação e rosto visível — ela aparece em documentos e no sistema institucional.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sei.unils.edu.br/" target="_blank">🔗 Acessar Portal</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 3. Notas -->
+      <div class="card" data-keys="nota notas boletim desempenho resultado aprovação média conceito rendimento">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📊</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Você acompanha suas notas em tempo real?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>As notas de cada avaliação ficam disponíveis no Portal do Aluno assim que os professores as lançam. Lá você vê o resultado por disciplina e a média do período.</p>
+          <div class="note tip"><span class="ni">💡</span><span>Notas demorando a aparecer? Os professores têm um prazo para lançamento após cada prova. Se passar muito do esperado, fale com a coordenação do curso.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sei.unils.edu.br/visaoAluno/minhasNotasAlunos.xhtml" target="_blank">🔗 Ver minhas notas</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 4. Frequência -->
+      <div class="card" data-keys="frequência frequencia falta faltas presença presenca 75% reprovação por falta abono atestado">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">✅</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">A frequência também conta para a aprovação?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Para ser aprovado em uma disciplina, além da média exigida, é necessário possuir frequência mínima de 75%.</p>
+          <p>O estudante que não atingir a frequência mínima poderá ser reprovado por faltas, independentemente das notas obtidas.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sei.unils.edu.br/visaoAluno/minhasFaltasAluno.xhtml" target="_blank">🔗 Conferir frequência</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- h) Intervalo nas aulas -->
+      <div class="card" data-keys="intervalo descanso recreio convivência pausa aulas lanche">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">☕</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Durante as aulas existe um intervalo previsto, proporcionando um momento de descanso e convivência entre os estudantes?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>As aulas contam com um intervalo previsto, um momento para descansar, lanchar e conviver com os colegas. É também uma ótima oportunidade para fazer novas amizades e fortalecer o vínculo com a turma.</p>
+          <div class="note ok"><span class="ni">💚</span><span>Aproveite o intervalo para relaxar e se conectar com outras pessoas — essas conexões fazem parte da experiência universitária.</span></div>
+        </div></div>
+      </div>
+
+      <!-- a) Disciplinas de 100 horas (on-line) -->
+      <div class="card" data-keys="100 horas disciplinas on-line online atividades remotas carga horária ead híbrido semipresencial">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">💡</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">As disciplinas de 100 horas possuem parte da carga horária realizada por meio de atividades on-line?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Nas disciplinas de 100 horas, parte da carga horária é cumprida por meio de atividades on-line, realizadas pelo ambiente virtual de aprendizagem. Isso dá mais flexibilidade aos seus estudos, mas exige organização e atenção aos prazos.</p>
+          <div class="note tip"><span class="ni">💡</span><span>Acompanhe as atividades on-line desde o início do semestre e respeite os prazos de entrega — elas fazem parte da sua carga horária e do seu desempenho na disciplina.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://unils.premia360.com/lms/meus-cursos" target="_blank">💻 Abrir Atividades Online</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 6/b. Solicitações acadêmicas on-line (antigo Requerimentos) -->
+      <div class="card" data-keys="requerimento requerimentos solicitações on-line online mudança de turno revisão de notas aproveitamento de estudos regime domiciliar secretaria">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📝</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Diversas solicitações acadêmicas podem ser realizadas pelo seu portal?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Boa parte das solicitações acadêmicas é feita de forma totalmente on-line, pelo Portal do Aluno. Entre elas:</p>
+          <ul class="minilist">
+            <li><span class="mi">✅</span> Mudança de turno</li>
+            <li><span class="mi">✅</span> Revisão de notas e frequência</li>
+            <li><span class="mi">✅</span> Revisão de aproveitamento de estudos</li>
+            <li><span class="mi">✅</span> Regime domiciliar</li>
+            <li><span class="mi">✅</span> Outras solicitações acadêmicas</li>
+          </ul>
+          <div class="note tip"><span class="ni">💡</span><span>Cada solicitação tem um prazo de resposta. Guarde sempre o número de protocolo do seu requerimento.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sei.unils.edu.br/visaoAluno/requerimentoAluno.xhtml" target="_blank">📄 Abrir requerimento</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 7/c. Exame Final (antigo Avaliações) -->
+      <div class="card" data-keys="avaliação avaliacao prova provas exame final média aprovação recuperação nota prazos calendário">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">🧪</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Caso não alcance a média necessária para aprovação direta, poderá ser encaminhado para o Exame Final?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Caso não alcance a média necessária para aprovação direta, o estudante poderá ser encaminhado para o Exame Final.</p>
+          <p>As datas são divulgadas no Calendário Acadêmico.</p>
+          <div class="note warn"><span class="ni">⚠️</span><span>Acompanhe suas notas regularmente e fique atento aos prazos.</span></div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://www.unils.edu.br/wp-content/uploads/2019/02/Calendario-Academico-2026.pdf" target="_blank">📅 Ver Calendário Acadêmico</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 8. Extensão -->
+      <div class="card" data-keys="extensão extensao trilha de extensão projetos extensionistas curricularização comunidade horas">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">🌱</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">A Extensão Curricular é obrigatória no seu curso?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>A Extensão Curricular conecta o que você aprende em sala com a comunidade real, por meio de projetos com impacto social. Hoje ela faz parte da grade obrigatória e corresponde a uma parte da carga horária do curso.</p>
+          <div class="note ok"><span class="ni">🌟</span><span>Além de cumprir a carga horária exigida, a extensão rende experiência prática, networking e um diferencial e tanto no currículo.</span></div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://drive.google.com/file/d/1gdT0rz9ZV449LfH739ZfWxuOEKU1w0GE/view?usp=sharing" target="_blank">🔗 Saber mais</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 9. Atividades Complementares -->
+      <div class="card" data-keys="atividades complementares acc horas complementares certificados eventos cursos palestras carga horária">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">🎯</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">As Atividades Complementares contam horas?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Participar de palestras, cursos, eventos, congressos, monitorias e projetos rende <strong>horas de Atividades Complementares</strong>, exigidas para a sua formação. Guarde sempre os certificados.</p>
+          <div class="note tip"><span class="ni">💡</span><span>Comece a juntar certificados desde o 1º semestre. Deixar tudo para o fim do curso é a causa nº 1 de atraso na formatura.</span></div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://sei.unils.edu.br/visaoAluno/atividadeComplementarAluno.xhtml" target="_blank">📄 Enviar certificados</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 10. CPA -->
+      <div class="card" data-keys="cpa comissão própria de avaliação avaliação institucional pesquisa questionário melhorias voz do aluno">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📋</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">O UniLS possui uma Comissão Própria de Avaliação (CPA)?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>A CPA é responsável por ouvir estudantes, professores e colaboradores, contribuindo para a melhoria contínua da instituição.</p>
+          <p>Sua participação é muito importante! Ao responder às pesquisas de avaliação, você contribui para o aperfeiçoamento dos serviços, da infraestrutura, do ensino e da experiência acadêmica.</p>
+        </div></div>
+      </div>
+
+      <!-- 11. Histórico e Documentos -->
+      <div class="card" data-keys="histórico historico escolar documentos declaração de matrícula comprovante diploma certidão emitir">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📜</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Você emite documentos sem ir à secretaria?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Documentos como <strong>declaração de matrícula</strong>, comprovantes e histórico escolar podem ser solicitados pelo Portal do Aluno, sem precisar de atendimento presencial.</p>
+          <p style="font-weight:700;color:var(--ink);margin-bottom:6px;">Como fazer?</p>
+          <ul class="steps">
+            <li>Selecione a declaração desejada.</li>
+            <li>Clique em <strong>"Gravar"</strong>.</li>
+            <li>Clique em <strong>"Imprimir Declaração"</strong>.</li>
+          </ul>
+          <div class="note ok"><span class="ni">✅</span><span>Seu documento será gerado automaticamente em PDF.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sei.unils.edu.br/visaoAluno/requerimentoAluno.xhtml" target="_blank">📄 Emitir Documento</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- d) Carteira Estudantil Digital -->
+      <div class="card" data-keys="carteira estudantil digital identificação carteirinha id estudante documento">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">🪪</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Você tem acesso à sua Carteira Estudantil Digital?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Como estudante do UniLS, você tem acesso à sua Carteira Estudantil Digital, que comprova seu vínculo com a instituição e pode ser usada como identificação acadêmica — tudo de forma prática, direto no celular.</p>
+          <div class="note tip"><span class="ni">💡</span><span>A carteira digital é prática para comprovar seu vínculo sempre que precisar. Mantenha seus dados e sua foto de perfil atualizados.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sei.unils.edu.br/visaoAluno/telaInicialVisaoAluno.xhtml" target="_blank">🪪 Acessar Carteira Estudantil</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 12. Matrícula / Rematrícula -->
+      <div class="card" data-keys="matrícula matricula rematrícula renovação automática mensalidade janeiro julho semestre letivo comunicados">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">🔁</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">A renovação da sua matrícula acontece de forma automática?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>A confirmação da renovação ocorre mediante o pagamento da mensalidade de janeiro, para os estudantes do primeiro semestre letivo, e da mensalidade de julho, para os estudantes do segundo semestre letivo.</p>
+          <div class="note warn"><span class="ni">⚠️</span><span>Fique atento aos comunicados institucionais e aos prazos divulgados.</span></div>
+        </div></div>
+      </div>
+
+      <!-- 13. Biblioteca -->
+      <div class="card" data-keys="biblioteca livros acervo empréstimo biblioteca virtual pesquisa normas abnt terminal">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📚</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">A biblioteca tem acervo físico e virtual?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Além dos livros no campus, você tem acesso a uma <strong>biblioteca virtual</strong> com milhares de títulos digitais — disponível de onde estiver, pelo seu login institucional.</p>
+          <div class="note tip"><span class="ni">💡</span><span>A biblioteca também ajuda com normas da ABNT para trabalhos e TCC. Vale conhecer logo no início.</span></div>
+          <div class="actions">
+            <a class="btn btn-ghost" href="https://www2.ls.edu.br/TerminalWeb" target="_blank">📚 Acessar biblioteca</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- Plano de Ensino -->
+      <div class="card" data-keys="plano de ensino disciplina professor primeira semana conteúdo metodologia avaliação bibliografia cronograma">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📖</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Na primeira semana de aula, o professor apresentará o Plano de Ensino da disciplina?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Nesse momento, serão apresentados e discutidos com a turma os conteúdos que serão estudados, a metodologia das aulas, os critérios de avaliação, a bibliografia e o cronograma da disciplina.</p>
+          <p>Essa é uma excelente oportunidade para esclarecer dúvidas e conhecer como será o desenvolvimento da disciplina durante o semestre.</p>
+          <div class="note tip"><span class="ni">💡</span><span>Guarde o Plano de Ensino — ele é o guia oficial da disciplina e o documento de referência para qualquer dúvida sobre avaliações ou conteúdos ao longo do semestre.</span></div>
+        </div></div>
+      </div>
+
+      <!-- Peso das avaliações -->
+      <div class="card" data-keys="avaliação peso 4 média final nota composição estudos rotina aprendizado prova">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📝</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">A prova A3 possui peso 4 na composição da média final?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>A prova A3 é uma avaliação presencial que tem peso 4 na composição da média final, sendo um dos principais instrumentos de avaliação do seu aprendizado.</p>
+          <p>Por isso, não deixe seus estudos para a última hora. Manter uma rotina de estudos, revisar os conteúdos regularmente e acompanhar as aulas são atitudes que contribuem para um melhor aprendizado e proporcionam mais tranquilidade e confiança no momento das avaliações.</p>
+          <div class="note ok"><span class="ni">🌟</span><span>Disciplina e constância nos estudos fazem toda a diferença. Pequenos momentos de revisão diária valem mais do que uma maratona de última hora.</span></div>
+        </div></div>
+      </div>
+
+      <!-- 16. NAAC -->
+      <div class="card" data-keys="naac núcleo de apoio acadêmico discente ajuda suporte orientação dúvidas acolhimento">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">🤝</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Em caso de dúvidas acadêmicas, você pode contar com o apoio do NAAC (Núcleo de Apoio Acadêmico ao Discente)?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Nossa equipe está disponível para auxiliar em questões relacionadas a:</p>
+          <ul class="minilist">
+            <li><span class="mi">✅</span> Portal do Aluno</li>
+            <li><span class="mi">✅</span> Requerimentos acadêmicos</li>
+            <li><span class="mi">✅</span> Documentos acadêmicos</li>
+            <li><span class="mi">✅</span> Calendário Acadêmico</li>
+            <li><span class="mi">✅</span> Renovação de matrícula</li>
+            <li><span class="mi">✅</span> Frequência e notas</li>
+            <li><span class="mi">✅</span> Orientações acadêmicas em geral</li>
+          </ul>
+          <div class="actions">
+            <button class="btn btn-primary" onclick="openHelp()">💬 Falar com o NAAC</button>
+          </div>
+        </div></div>
+      </div>
+    </div><!-- /cards-academico -->
+  </div>
+</section>
+
+<!-- ===================================================== -->
+<!-- VIEW: FINANCEIRO                                      -->
+<!-- ===================================================== -->
+<section id="view-financeiro" class="view">
+  <div class="container">
+    <div class="section-intro">
+      <div class="eyebrow">Serviços financeiros</div>
+      <h2>💰 Área Financeira</h2>
+      <p>Procedimentos do Portal do Aluno e do Departamento Financeiro. Toque para abrir cada tema.</p>
+    </div>
+
+    <div class="search-wrap">
+      <span class="search-icon">🔎</span>
+      <input type="text" class="search-input" id="search-financeiro" placeholder="O que você deseja encontrar? Ex.: boleto, senha, imposto de renda..." oninput="filterCards('financeiro')">
+      <button class="search-clear" id="clear-financeiro" onclick="clearSearch('financeiro')">✕</button>
+    </div>
+    <div class="search-empty" id="empty-financeiro">Nenhum tema encontrado. Tente outra palavra ou fale com o Financeiro no botão 💬 Precisa de ajuda?</div>
+
+    <div class="cards" id="cards-financeiro">
+
+      <!-- 3. Boletos -->
+      <div class="card" data-keys="boleto boletos mensalidade pagamento contas a pagar em aberto segunda via emissão">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📋</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Você emite seus boletos direto no portal?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Os boletos disponíveis para pagamento podem ser consultados e emitidos diretamente pelo Portal do Aluno.</p>
+          <ul class="steps">
+            <li>Acesse o Portal do Aluno: <strong>unils.edu.br</strong></li>
+            <li>Clique na opção <strong>Estudante</strong>.</li>
+            <li>Informe seu <strong>login</strong> e <strong>senha</strong>.</li>
+            <li>Após o acesso, será exibido o seu nome.</li>
+            <li>No campo <strong>"Você está acessando"</strong>, selecione ou digite o curso em que está matriculado.</li>
+            <li>Acesse o menu <strong>Financeiro</strong>.</li>
+            <li>Clique na opção <strong>Em Aberto</strong>.</li>
+            <li>Selecione <strong>Contas a Pagar</strong>.</li>
+            <li>Os boletos pendentes serão exibidos para consulta, impressão ou pagamento.</li>
+          </ul>
+          <div class="note warn"><span class="ni">⚠️</span><span>Caso o boleto não esteja disponível ou haja divergência nas informações apresentadas, entre em contato com o setor responsável para verificação antes de pagar.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sei.unils.edu.br/visaoAluno/minhasContasPagarAluno.xhtml" target="_blank">🔗 Acessar Portal</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- 5. Parcelas em atraso -->
+      <div class="card" data-keys="atraso parcelas vencidas débito divida negociação cobrafix pagfix regularização 0800 segunda via">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">⏰</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">Parcelas em atraso podem ser negociadas?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>As parcelas vencidas e não quitadas ficam sob responsabilidade da empresa parceira <strong>Cobrafix</strong>, responsável pela gestão e negociação dos débitos em atraso.</p>
+          <div class="hl">
+            <h4>🤝 Fale com a Cobrafix</h4>
+            <p>Para negociação, atualização de valores, emissão de segunda via ou regularização financeira, entre em contato diretamente pelos canais abaixo:</p>
+            <div class="actions">
+              <a class="btn btn-glass" href="tel:08000253435">☎️ 0800 025 3435</a>
+              <a class="btn btn-glass" href="https://www.pagfix.com/cobrafix" target="_blank">🌐 pagfix.com/cobrafix</a>
+            </div>
+          </div>
+          <ul class="minilist">
+            <li><span class="mi">💬</span> Negociação de débito em atraso</li>
+            <li><span class="mi">🔄</span> Atualização dos valores</li>
+            <li><span class="mi">📄</span> Emissão de segunda via</li>
+            <li><span class="mi">✅</span> Regularização financeira completa</li>
+          </ul>
+        </div></div>
+      </div>
+
+      <!-- 1. Imposto de Renda -->
+      <div class="card" data-keys="imposto de renda ir declaração anual quitação de débitos demonstrativo comprovante despesas educação">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📄</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">A declaração para o Imposto de Renda sai na hora?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>O estudante pode emitir a <strong>Declaração Anual de Quitação de Débitos</strong> diretamente pelo Portal do Aluno, para usar na elaboração da Declaração de Imposto de Renda.</p>
+          <ul class="steps">
+            <li>Acesse o Portal do Aluno: <strong>unils.edu.br</strong></li>
+            <li>Clique na opção <strong>Estudante</strong>.</li>
+            <li>Informe seu <strong>login</strong> e <strong>senha</strong>.</li>
+            <li>Após o acesso, será exibido o nome do estudante.</li>
+            <li>Selecione <strong>Espaço do Aluno</strong>.</li>
+            <li>Acesse o menu <strong>Financeiro</strong>.</li>
+            <li>Clique em <strong>Declaração Anual de Quitação de Débitos</strong>.</li>
+            <li>Realize a visualização, emissão ou download do documento.</li>
+          </ul>
+          <div class="note ok"><span class="ni">✅</span><span>O documento é gerado automaticamente pelo sistema. Não é necessário solicitar à secretaria.</span></div>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://sei.unils.edu.br/visaoAluno/declaracaoImpostoRenda.xhtml" target="_blank">📄 Emitir Declaração</a>
+          </div>
+        </div></div>
+      </div>
+
+      <!-- Contatos do financeiro -->
+      <div class="card" data-keys="contato financeiro telefone whatsapp e-mail email atendimento ajuda falar">
+        <div class="card-head" onclick="toggleCard(this)">
+          <div class="card-icon">📞</div>
+          <div class="card-titles">
+            <div class="card-kicker">⭐ Você sabia que...</div>
+            <div class="card-title">O Financeiro atende por telefone, WhatsApp e e-mail?</div>
+          </div>
+          <div class="card-chevron"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></div>
+        </div>
+        <div class="card-body"><div class="card-body-inner">
+          <p>Dúvidas que não se encaixam nos temas acima, inconsistências cadastrais ou qualquer questão financeira: fale direto com a equipe do Financeiro UniLS.</p>
+          <div class="actions">
+            <a class="btn btn-primary" href="tel:30299324">☎️ 3029-9324</a>
+            <a class="btn btn-wa" href="https://wa.me/556133522294" target="_blank">📱 WhatsApp (61) 3352.2294</a>
+            <a class="btn btn-ghost" href="mailto:financeiro@unils.edu.br">📧 financeiro@unils.edu.br</a>
+          </div>
+          <div class="note tip"><span class="ni">💡</span><span>Tenha em mãos seu nome completo, CPF e matrícula. Isso agiliza muito o atendimento.</span></div>
+        </div></div>
+      </div>
+
+    </div><!-- /cards-financeiro -->
+
+    <div style="background:var(--white);border-radius:var(--r);padding:20px 24px;margin-top:18px;border:1px solid var(--gray-line);text-align:center;">
+      <p style="font-size:13px;color:var(--muted);line-height:1.8;">
+        <strong style="color:var(--ink);">UniLS — Centro Universitário LS</strong><br>
+        QSD 05, Lote 05, Taguatinga Sul · Taguatinga, Brasília – DF, 72020-111<br>
+        <a class="inline" href="https://unils.edu.br" target="_blank" style="color:var(--red);font-weight:600;text-decoration:none;">unils.edu.br</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<div class="container">
+  <div class="footer">
+    <p><strong>Guia do Estudante Ingressante · UniLS</strong><br>
+    Material de apoio com os principais procedimentos acadêmicos e financeiros.<br>
+    Em caso de dúvida, use o botão 💬 Precisa de ajuda? ou os canais oficiais da instituição.</p>
+  </div>
+</div>
+
+<!-- FLOATING BUTTONS -->
+<button class="fab-top" id="fabTop" onclick="scrollTop()" title="Voltar ao topo">⬆️</button>
+<button class="fab-help" onclick="openHelp()">💬 Precisa de ajuda?</button>
+
+<!-- HELP MODAL -->
+<div class="overlay" id="overlay" onclick="closeHelpBg(event)">
+  <div class="help-sheet">
+    <button class="help-close" onclick="closeHelp()">✕</button>
+    <h3>💬 Precisa de ajuda?</h3>
+    <p class="hs-sub">Escolha o melhor canal para falar com a gente.</p>
+    <div class="help-grid">
+      <a class="help-item wa" href="https://wa.me/556133522294" target="_blank">
+        <div class="hi-icon">📱</div>
+        <div><span class="hi-label">WhatsApp</span><span class="hi-value">(61) 3352.2294</span></div>
+      </a>
+      <a class="help-item tel" href="tel:30299324">
+        <div class="hi-icon">☎️</div>
+        <div><span class="hi-label">Telefone</span><span class="hi-value">3029-9324</span></div>
+      </a>
+      <a class="help-item mail" href="mailto:naac@unils.edu.br">
+        <div class="hi-icon">📧</div>
+        <div><span class="hi-label">E-mail</span><span class="hi-value">naac@unils.edu.br</span></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+try {
+  // ---- Tabs / views ----
+  function goTab(tab) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('view-' + tab).classList.add('active');
+    document.querySelectorAll('.tab[data-tab="' + tab + '"]').forEach(t => t.classList.add('active'));
+    smoothScrollTo(0);
+  }
+
+  // ---- Accordion ----
+  function toggleCard(head) {
+    const card = head.closest('.card');
+    const body = card.querySelector('.card-body');
+    const isOpen = card.classList.contains('open');
+    if (isOpen) {
+      card.classList.remove('open');
+      body.style.maxHeight = null;
+    } else {
+      card.classList.add('open');
+      body.style.maxHeight = body.scrollHeight + 'px';
+    }
+  }
+
+  // ---- Search ----
+  function filterCards(area) {
+    const q = document.getElementById('search-' + area).value.trim().toLowerCase();
+    const clearBtn = document.getElementById('clear-' + area);
+    const empty = document.getElementById('empty-' + area);
+    const cards = document.querySelectorAll('#cards-' + area + ' .card');
+    clearBtn.classList.toggle('show', q.length > 0);
+    let visible = 0;
+    cards.forEach(card => {
+      const keys = (card.getAttribute('data-keys') || '').toLowerCase();
+      const text = card.querySelector('.card-title').textContent.toLowerCase();
+      const match = q === '' || keys.includes(q) || text.includes(q);
+      card.style.display = match ? '' : 'none';
+      if (match) visible++;
+      // auto-open single match on search
+      if (q.length >= 2 && match) {
+        if (!card.classList.contains('open')) {
+          card.classList.add('open');
+          const body = card.querySelector('.card-body');
+          body.style.maxHeight = body.scrollHeight + 'px';
+        }
+      } else if (q.length === 0 && card.classList.contains('open')) {
+        card.classList.remove('open');
+        card.querySelector('.card-body').style.maxHeight = null;
+      }
+    });
+    empty.classList.toggle('show', visible === 0 && q.length > 0);
+  }
+  function clearSearch(area) {
+    const input = document.getElementById('search-' + area);
+    input.value = '';
+    filterCards(area);
+    input.focus();
+  }
+
+  // ---- Help modal ----
+  function openHelp() { document.getElementById('overlay').classList.add('show'); document.body.style.overflow = 'hidden'; }
+  function closeHelp() { document.getElementById('overlay').classList.remove('show'); document.body.style.overflow = ''; }
+  function closeHelpBg(e) { if (e.target.id === 'overlay') closeHelp(); }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeHelp(); });
+
+  // ---- Back to top ----
+  function scrollTop() { smoothScrollTo(0); }
+  // Smooth scroll polyfill for iOS Safari < 14
+  function smoothScrollTo(y) {
+    if ('scrollBehavior' in document.documentElement.style) {
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    } else {
+      window.scrollTo(0, y);
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('fabTop').classList.toggle('show', window.scrollY > 400);
+  });
+} catch(e) { console.warn('UniLS guide JS error:', e); }
+</script>
+
+</body>
+</html>
