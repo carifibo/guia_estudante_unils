@@ -9,7 +9,7 @@
 <title>Guia do Estudante Ingressante — UniLS</title>
 <style>
   /* System fonts — zero external dependency, instant on iOS and Android */
-
+ 
   :root {
     --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     --font-display: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
@@ -48,7 +48,7 @@
     line-height: 1.7;
     -webkit-font-smoothing: antialiased;
   }
-
+ 
   /* ============ HEADER ============ */
   .topbar {
     position: -webkit-sticky; position: sticky; top: 0; z-index: 100;
@@ -66,7 +66,7 @@
     margin-left: auto; font-size: 12px; color: var(--muted);
     font-weight: 500; letter-spacing: 0.3px;
   }
-
+ 
   /* ============ TABS ============ */
   .tabrow {
     position: -webkit-sticky; position: sticky; top: 69px; z-index: 99;
@@ -90,14 +90,14 @@
   .tab:hover { color: var(--ink); }
   .tab.active { color: var(--red); border-bottom-color: var(--red); }
   .tab-emoji { font-size: 16px; }
-
+ 
   /* ============ CONTAINER ============ */
   .container { max-width: 880px; margin: 0 auto; padding: 0 22px; }
   .view { display: none; animation: fade 0.3s ease; }
   .view.active { display: block; }
   @-webkit-keyframes fade { from { opacity: 0; -webkit--webkit-transform: translateY(6px); transform: translateY(6px); -webkit-transform: translateY(6px); transform: translateY(6px); } to { opacity: 1; -webkit--webkit-transform: translateY(0); transform: translateY(0); -webkit-transform: translateY(0); transform: translateY(0); } }
   @keyframes fade { from { opacity: 0; -webkit-transform: translateY(6px); transform: translateY(6px); } to { opacity: 1; -webkit-transform: translateY(0); transform: translateY(0); } }
-
+ 
   /* ============ HOME / WELCOME ============ */
   .welcome {
     text-align: center;
@@ -129,7 +129,7 @@
     border-left: 4px solid var(--red);
     text-align: left;
   }
-
+ 
   /* ============ BIG CARDS ============ */
   .bigcards {
     display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap;
@@ -173,7 +173,7 @@
     transition: background 0.2s;
   }
   .bigcard:hover .bigcard-btn { background: var(--red-dark); }
-
+ 
   /* ============ SECTION HEADER (inside tabs) ============ */
   .section-intro { padding: 36px 0 20px; }
   .section-intro .eyebrow {
@@ -185,7 +185,7 @@
     color: var(--ink); margin-bottom: 8px; letter-spacing: -0.5px;
   }
   .section-intro p { font-size: 15px; color: var(--muted); max-width: 600px; }
-
+ 
   /* ============ SEARCH ============ */
   .search-wrap { position: relative; margin-bottom: 8px; }
   .search-input {
@@ -217,7 +217,7 @@
     color: var(--muted); font-size: 15px;
   }
   .search-empty.show { display: block; }
-
+ 
   /* ============ CARDS / ACCORDION ============ */
   .cards { margin: 18px 0 8px; display: flex; flex-direction: column; gap: 12px; }
   .card {
@@ -262,7 +262,7 @@
   .card-body-inner > p { font-size: 14.5px; color: var(--text); margin-bottom: 14px; line-height: 1.7; }
   .card-body-inner > p:last-child { margin-bottom: 0; }
   .card-body-inner strong { color: var(--ink); font-weight: 700; }
-
+ 
   /* steps */
   .steps { list-style: none; counter-reset: s; display: flex; flex-direction: column; gap: 9px; margin: 6px 0 14px; }
   .steps li {
@@ -279,14 +279,14 @@
   }
   .card-body-inner a.inline { color: var(--red); font-weight: 600; text-decoration: none; }
   .card-body-inner a.inline:hover { text-decoration: underline; }
-
+ 
   /* notices */
   .note { display: flex; gap: 11px; align-items: flex-start; border-radius: var(--r-sm); padding: 13px 15px; font-size: 13.5px; line-height: 1.6; margin-top: 12px; }
   .note .ni { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
   .note.warn { background: var(--amber-bg); border: 1px solid #EAC97A; color: var(--amber); }
   .note.ok { background: var(--green-bg); border: 1px solid #A5D9C2; color: var(--green); }
   .note.tip { background: var(--blue-bg); border: 1px solid #BBC8EE; color: var(--blue); }
-
+ 
   /* action buttons */
   .actions { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 16px; }
   .btn {
@@ -300,7 +300,7 @@
   .btn-ghost:hover { background: var(--red-light); border-color: var(--red); }
   .btn-wa { background: #1FA855; color: white; }
   .btn-wa:hover { background: #178A45; }
-
+ 
   /* email template */
   .email-box { background: var(--blue-bg); border: 1px solid #BBC8EE; border-radius: var(--r-sm); overflow: hidden; margin-top: 14px; }
   .email-box-h { background: #DDE4F7; padding: 9px 15px; font-size: 11.5px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; color: var(--blue); }
@@ -309,7 +309,7 @@
   .ef-val { background: white; border: 1px solid var(--gray-line); border-radius: 7px; padding: 8px 12px; font-size: 13px; color: var(--ink); font-weight: 500; }
   .ef-val.code { font-family: ui-monospace, monospace; font-size: 12px; color: var(--red); }
   .ef-val + .ef-val { margin-top: 4px; }
-
+ 
   /* highlight */
   .hl { background: linear-gradient(135deg, var(--red) 0%, var(--red-dark) 100%); border-radius: var(--r); padding: 22px; color: white; margin: 14px 0; }
   .hl h4 { font-family: var(--font-display); font-size: 17px; font-weight: 700; margin-bottom: 6px; }
@@ -317,17 +317,17 @@
   .hl .actions { margin-top: 0; }
   .hl .btn-glass { background: rgba(255,255,255,0.16); color: white; border: 1px solid rgba(255,255,255,0.28); }
   .hl .btn-glass:hover { background: rgba(255,255,255,0.28); }
-
+ 
   /* mini-list inside cards */
   .minilist { list-style: none; display: flex; flex-direction: column; gap: 7px; margin-top: 6px; }
   .minilist li { display: flex; gap: 9px; align-items: flex-start; font-size: 13.5px; color: var(--text); }
   .minilist li .mi { flex-shrink: 0; }
-
+ 
   /* ============ FOOTER ============ */
   .footer { text-align: center; padding: 40px 22px 120px; border-top: 1px solid var(--gray-line); margin-top: 28px; }
   .footer p { font-size: 13px; color: var(--muted); line-height: 1.8; }
   .footer strong { color: var(--ink); }
-
+ 
   /* ============ FLOATING HELP ============ */
   .fab-help {
     position: fixed; right: 20px; bottom: 20px; z-index: 200;
@@ -339,7 +339,7 @@
     transition: -webkit-transform 0.2s, transform 0.2s, background 0.2s;
   }
   .fab-help:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); background: var(--red-dark); }
-
+ 
   .fab-top {
     position: fixed; right: 20px; bottom: 84px; z-index: 200;
     width: 46px; height: 46px; border-radius: 50%;
@@ -350,7 +350,7 @@
   }
   .fab-top.show { display: flex; }
   .fab-top:hover { -webkit-transform: translateY(-3px); transform: translateY(-3px); }
-
+ 
   /* help modal */
   .overlay {
     position: fixed; inset: 0; z-index: 300;
@@ -390,7 +390,7 @@
   .help-item .hi-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--muted); display: block; }
   .help-item .hi-value { font-size: 15px; font-weight: 700; color: var(--ink); }
   @media (min-width: 520px) { .overlay { align-items: center; } .help-sheet { border-radius: 24px; position: relative; } }
-
+ 
   /* ============ RESPONSIVE ============ */
   @media (max-width: 600px) {
     .bigcards { grid-template-columns: 1fr; }
@@ -404,7 +404,7 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- HEADER -->
 <header class="topbar">
   <div class="topbar-inner">
@@ -414,7 +414,7 @@
     <span class="topbar-tag">Guia do Estudante Ingressante</span>
   </div>
 </header>
-
+ 
 <!-- TABS -->
 <nav class="tabrow">
   <div class="tabrow-inner">
@@ -423,7 +423,7 @@
     <button class="tab" data-tab="financeiro" onclick="goTab('financeiro')"><span class="tab-emoji">💰</span> Financeiro</button>
   </div>
 </nav>
-
+ 
 <!-- ===================================================== -->
 <!-- VIEW: HOME                                            -->
 <!-- ===================================================== -->
@@ -434,7 +434,7 @@
     <p class="sub">Tudo o que você precisa saber para iniciar sua jornada acadêmica.</p>
     <p class="msg">Estamos felizes em fazer parte da sua trajetória! Preparamos este guia para ajudá-lo a conhecer os principais serviços, processos e informações da sua vida acadêmica. Escolha uma das áreas abaixo para começar.</p>
   </div>
-
+ 
   <div class="container">
     <div class="bigcards">
       <div class="bigcard" onclick="goTab('academico')">
@@ -446,13 +446,13 @@
       <div class="bigcard" onclick="goTab('financeiro')">
         <div class="bigcard-icon">💰</div>
         <h2>Financeiro</h2>
-        <p>Consulte informações sobre boletos, pagamentos, declaração para imposto de renda, negociação de débitos, recuperação de senha e demais serviços financeiros.</p>
+        <p>Consulte informações sobre boletos, pagamentos, declaração para imposto de renda, negociação de débitos e demais serviços financeiros.</p>
         <span class="bigcard-btn">Acessar Financeiro →</span>
       </div>
     </div>
   </div>
 </section>
-
+ 
 <!-- ===================================================== -->
 <!-- VIEW: ACADÊMICO                                       -->
 <!-- ===================================================== -->
@@ -463,16 +463,16 @@
       <h2>🎓 Área Acadêmica</h2>
       <p>Toque em qualquer card para ver as informações. Use a busca para encontrar um tema rapidamente.</p>
     </div>
-
+ 
     <div class="search-wrap">
       <span class="search-icon">🔎</span>
       <input type="text" class="search-input" id="search-academico" placeholder="O que você deseja encontrar? Ex.: nota, calendário, histórico..." oninput="filterCards('academico')">
       <button class="search-clear" id="clear-academico" onclick="clearSearch('academico')">✕</button>
     </div>
     <div class="search-empty" id="empty-academico">Nenhum tema encontrado. Tente outra palavra ou fale com a gente no botão 💬 Precisa de ajuda?</div>
-
+ 
     <div class="cards" id="cards-academico">
-
+ 
       <!-- 1. Calendário Acadêmico -->
       <div class="card" data-keys="calendário calendario datas feriados início aulas provas semestre cronograma prazos">
         <div class="card-head" onclick="toggleCard(this)">
@@ -491,7 +491,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- e) Canais oficiais -->
       <div class="card" data-keys="canais oficiais comunicados informações divulgação site instagram e-mail institucional avisos notícias">
         <div class="card-head" onclick="toggleCard(this)">
@@ -515,7 +515,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 2. Portal do Aluno -->
       <div class="card" data-keys="portal aluno acesso login senha sistema espaço do aluno area do aluno sei">
         <div class="card-head" onclick="toggleCard(this)">
@@ -540,7 +540,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- f) Recuperação de Senha (acadêmico) -->
       <div class="card" data-keys="senha recuperação redefinição esqueci minha senha portal e-mail email institucional login acesso simples">
         <div class="card-head" onclick="toggleCard(this)">
@@ -587,7 +587,7 @@
           <div class="note warn"><span class="ni">⚠️</span><span>Solicitações sem nome completo e CPF não poderão ser atendidas, pois não será possível localizar o cadastro do estudante.</span></div>
         </div></div>
       </div>
-
+ 
       <!-- g) Atualização da Foto de Perfil (acadêmico) -->
       <div class="card" data-keys="foto perfil atualizar foto alterar foto imagem configuração espaço do aluno portal">
         <div class="card-head" onclick="toggleCard(this)">
@@ -615,7 +615,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 3. Notas -->
       <div class="card" data-keys="nota notas boletim desempenho resultado aprovação média conceito rendimento">
         <div class="card-head" onclick="toggleCard(this)">
@@ -634,7 +634,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 4. Frequência -->
       <div class="card" data-keys="frequência frequencia falta faltas presença presenca 75% reprovação por falta abono atestado">
         <div class="card-head" onclick="toggleCard(this)">
@@ -653,7 +653,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- h) Intervalo nas aulas -->
       <div class="card" data-keys="intervalo descanso recreio convivência pausa aulas lanche">
         <div class="card-head" onclick="toggleCard(this)">
@@ -669,7 +669,7 @@
           <div class="note ok"><span class="ni">💚</span><span>Aproveite o intervalo para relaxar e se conectar com outras pessoas — essas conexões fazem parte da experiência universitária.</span></div>
         </div></div>
       </div>
-
+ 
       <!-- a) Disciplinas de 100 horas (on-line) -->
       <div class="card" data-keys="100 horas disciplinas on-line online atividades remotas carga horária ead híbrido semipresencial">
         <div class="card-head" onclick="toggleCard(this)">
@@ -688,7 +688,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 6/b. Solicitações acadêmicas on-line (antigo Requerimentos) -->
       <div class="card" data-keys="requerimento requerimentos solicitações on-line online mudança de turno revisão de notas aproveitamento de estudos regime domiciliar secretaria">
         <div class="card-head" onclick="toggleCard(this)">
@@ -714,7 +714,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 7/c. Exame Final (antigo Avaliações) -->
       <div class="card" data-keys="avaliação avaliacao prova provas exame final média aprovação recuperação nota prazos calendário">
         <div class="card-head" onclick="toggleCard(this)">
@@ -734,7 +734,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 8. Extensão -->
       <div class="card" data-keys="extensão extensao trilha de extensão projetos extensionistas curricularização comunidade horas">
         <div class="card-head" onclick="toggleCard(this)">
@@ -753,7 +753,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 9. Atividades Complementares -->
       <div class="card" data-keys="atividades complementares acc horas complementares certificados eventos cursos palestras carga horária">
         <div class="card-head" onclick="toggleCard(this)">
@@ -772,7 +772,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 10. CPA -->
       <div class="card" data-keys="cpa comissão própria de avaliação avaliação institucional pesquisa questionário melhorias voz do aluno">
         <div class="card-head" onclick="toggleCard(this)">
@@ -788,7 +788,7 @@
           <p>Sua participação é muito importante! Ao responder às pesquisas de avaliação, você contribui para o aperfeiçoamento dos serviços, da infraestrutura, do ensino e da experiência acadêmica.</p>
         </div></div>
       </div>
-
+ 
       <!-- 11. Histórico e Documentos -->
       <div class="card" data-keys="histórico historico escolar documentos declaração de matrícula comprovante diploma certidão emitir">
         <div class="card-head" onclick="toggleCard(this)">
@@ -813,7 +813,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- d) Carteira Estudantil Digital -->
       <div class="card" data-keys="carteira estudantil digital identificação carteirinha id estudante documento">
         <div class="card-head" onclick="toggleCard(this)">
@@ -832,7 +832,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 12. Matrícula / Rematrícula -->
       <div class="card" data-keys="matrícula matricula rematrícula renovação automática mensalidade janeiro julho semestre letivo comunicados">
         <div class="card-head" onclick="toggleCard(this)">
@@ -848,7 +848,7 @@
           <div class="note warn"><span class="ni">⚠️</span><span>Fique atento aos comunicados institucionais e aos prazos divulgados.</span></div>
         </div></div>
       </div>
-
+ 
       <!-- 13. Biblioteca -->
       <div class="card" data-keys="biblioteca livros acervo empréstimo biblioteca virtual pesquisa normas abnt terminal">
         <div class="card-head" onclick="toggleCard(this)">
@@ -867,7 +867,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- Plano de Ensino -->
       <div class="card" data-keys="plano de ensino disciplina professor primeira semana conteúdo metodologia avaliação bibliografia cronograma">
         <div class="card-head" onclick="toggleCard(this)">
@@ -884,7 +884,7 @@
           <div class="note tip"><span class="ni">💡</span><span>Guarde o Plano de Ensino — ele é o guia oficial da disciplina e o documento de referência para qualquer dúvida sobre avaliações ou conteúdos ao longo do semestre.</span></div>
         </div></div>
       </div>
-
+ 
       <!-- Peso das avaliações -->
       <div class="card" data-keys="avaliação peso 4 média final nota composição estudos rotina aprendizado prova">
         <div class="card-head" onclick="toggleCard(this)">
@@ -901,7 +901,7 @@
           <div class="note ok"><span class="ni">🌟</span><span>Disciplina e constância nos estudos fazem toda a diferença. Pequenos momentos de revisão diária valem mais do que uma maratona de última hora.</span></div>
         </div></div>
       </div>
-
+ 
       <!-- 16. NAAC -->
       <div class="card" data-keys="naac núcleo de apoio acadêmico discente ajuda suporte orientação dúvidas acolhimento">
         <div class="card-head" onclick="toggleCard(this)">
@@ -931,7 +931,7 @@
     </div><!-- /cards-academico -->
   </div>
 </section>
-
+ 
 <!-- ===================================================== -->
 <!-- VIEW: FINANCEIRO                                      -->
 <!-- ===================================================== -->
@@ -942,16 +942,16 @@
       <h2>💰 Área Financeira</h2>
       <p>Procedimentos do Portal do Aluno e do Departamento Financeiro. Toque para abrir cada tema.</p>
     </div>
-
+ 
     <div class="search-wrap">
       <span class="search-icon">🔎</span>
       <input type="text" class="search-input" id="search-financeiro" placeholder="O que você deseja encontrar? Ex.: boleto, senha, imposto de renda..." oninput="filterCards('financeiro')">
       <button class="search-clear" id="clear-financeiro" onclick="clearSearch('financeiro')">✕</button>
     </div>
     <div class="search-empty" id="empty-financeiro">Nenhum tema encontrado. Tente outra palavra ou fale com o Financeiro no botão 💬 Precisa de ajuda?</div>
-
+ 
     <div class="cards" id="cards-financeiro">
-
+ 
       <!-- 3. Boletos -->
       <div class="card" data-keys="boleto boletos mensalidade pagamento contas a pagar em aberto segunda via emissão">
         <div class="card-head" onclick="toggleCard(this)">
@@ -981,7 +981,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- 5. Parcelas em atraso -->
       <div class="card" data-keys="atraso parcelas vencidas débito divida negociação cobrafix pagfix regularização 0800 segunda via">
         <div class="card-head" onclick="toggleCard(this)">
@@ -1010,7 +1010,7 @@
           </ul>
         </div></div>
       </div>
-
+ 
       <!-- 1. Imposto de Renda -->
       <div class="card" data-keys="imposto de renda ir declaração anual quitação de débitos demonstrativo comprovante despesas educação">
         <div class="card-head" onclick="toggleCard(this)">
@@ -1039,7 +1039,7 @@
           </div>
         </div></div>
       </div>
-
+ 
       <!-- Contatos do financeiro -->
       <div class="card" data-keys="contato financeiro telefone whatsapp e-mail email atendimento ajuda falar">
         <div class="card-head" onclick="toggleCard(this)">
@@ -1060,9 +1060,9 @@
           <div class="note tip"><span class="ni">💡</span><span>Tenha em mãos seu nome completo, CPF e matrícula. Isso agiliza muito o atendimento.</span></div>
         </div></div>
       </div>
-
+ 
     </div><!-- /cards-financeiro -->
-
+ 
     <div style="background:var(--white);border-radius:var(--r);padding:20px 24px;margin-top:18px;border:1px solid var(--gray-line);text-align:center;">
       <p style="font-size:13px;color:var(--muted);line-height:1.8;">
         <strong style="color:var(--ink);">UniLS — Centro Universitário LS</strong><br>
@@ -1072,7 +1072,7 @@
     </div>
   </div>
 </section>
-
+ 
 <!-- FOOTER -->
 <div class="container">
   <div class="footer">
@@ -1081,11 +1081,11 @@
     Em caso de dúvida, use o botão 💬 Precisa de ajuda? ou os canais oficiais da instituição.</p>
   </div>
 </div>
-
+ 
 <!-- FLOATING BUTTONS -->
-<button class="fab-top" id="fabTop" onclick="scrollTop()" title="Voltar ao topo">⬆️</button>
+<button class="fab-top" id="fabTop" onclick="voltarAoTopo()" title="Voltar ao topo">⬆️</button>
 <button class="fab-help" onclick="openHelp()">💬 Precisa de ajuda?</button>
-
+ 
 <!-- HELP MODAL -->
 <div class="overlay" id="overlay" onclick="closeHelpBg(event)">
   <div class="help-sheet">
@@ -1108,7 +1108,7 @@
     </div>
   </div>
 </div>
-
+ 
 <script>
 try {
   // ---- Tabs / views ----
@@ -1119,7 +1119,7 @@ try {
     document.querySelectorAll('.tab[data-tab="' + tab + '"]').forEach(t => t.classList.add('active'));
     smoothScrollTo(0);
   }
-
+ 
   // ---- Accordion ----
   function toggleCard(head) {
     const card = head.closest('.card');
@@ -1133,7 +1133,7 @@ try {
       body.style.maxHeight = body.scrollHeight + 'px';
     }
   }
-
+ 
   // ---- Search ----
   function filterCards(area) {
     const q = document.getElementById('search-' + area).value.trim().toLowerCase();
@@ -1168,15 +1168,15 @@ try {
     filterCards(area);
     input.focus();
   }
-
+ 
   // ---- Help modal ----
   function openHelp() { document.getElementById('overlay').classList.add('show'); document.body.style.overflow = 'hidden'; }
   function closeHelp() { document.getElementById('overlay').classList.remove('show'); document.body.style.overflow = ''; }
   function closeHelpBg(e) { if (e.target.id === 'overlay') closeHelp(); }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeHelp(); });
-
+ 
   // ---- Back to top ----
-  function scrollTop() { smoothScrollTo(0); }
+  function voltarAoTopo() { smoothScrollTo(0); }
   // Smooth scroll polyfill for iOS Safari < 14
   function smoothScrollTo(y) {
     if ('scrollBehavior' in document.documentElement.style) {
@@ -1185,12 +1185,12 @@ try {
       window.scrollTo(0, y);
     }
   }
-
+ 
   window.addEventListener('scroll', () => {
     document.getElementById('fabTop').classList.toggle('show', window.scrollY > 400);
   });
 } catch(e) { console.warn('UniLS guide JS error:', e); }
 </script>
-
+ 
 </body>
 </html>
